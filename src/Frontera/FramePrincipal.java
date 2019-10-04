@@ -156,7 +156,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
     }
-
+    
     public void inicializacion() {
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
@@ -173,7 +173,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         usuarios.add(a);
         usuarios.add(b);
         usuarios.add(c);
-    
+       
         sistema.setUsuarios(usuarios);
         
         for (Usuario u : sistema.getUsuarios()) {
