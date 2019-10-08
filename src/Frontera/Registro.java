@@ -6,14 +6,20 @@
 package Frontera;
 
 import Control.ValidarLogin;
+import Control.ValidarRegistro;
+import Entidad.Sistema;
 import Entidad.Usuario;
+import static Frontera.FramePrincipal.sistema;
+import java.util.ArrayList;
 
 /**
  *
  * @author Estudiante
  */
 public class Registro extends javax.swing.JPanel {
-    Usuario usuario = new Usuario();
+    private Sistema sistema= FramePrincipal.sistema;
+    ArrayList<Usuario> usuariosR = new ArrayList<Usuario>();
+    
     /**
      * Creates new form Registro
      */
@@ -98,12 +104,28 @@ public class Registro extends javax.swing.JPanel {
        if(!contraseniaTF.getText().equals(validarContraseniaTF.getText())){
            System.out.println("Contraseñas no compatibles");
        }else{
-       
-        usuario.setNombre(nombreTF.getText());
-        usuario.setPassword(contraseniaTF.getText());
+        Usuario usuarioR = new Usuario();
+        usuarioR.setNombre(nombreTF.getText());
+        usuarioR.setPassword(contraseniaTF.getText());
+        
+        ValidarRegistro validar = new ValidarRegistro();
+        String resultado = validar.VerificarRegistro(usuarioR);
+        System.out.println("----------------");
+        System.out.println(resultado);
+        if(resultado== "Usuario valido"){
+        
+        sistema.setUsuarios(usuariosR);
+        usuariosR.add(usuarioR);
+        
+        for (Usuario u : sistema.getUsuarios()) {
+            System.out.println(u.getNombre());
+            System.out.println(u.getPassword());
+            System.out.println("-------------");
+            
+        }
         System.out.println("Usuario creado exitosamente");
         
-           
+        }   
        }
     
     }//GEN-LAST:event_registrarBActionPerformed

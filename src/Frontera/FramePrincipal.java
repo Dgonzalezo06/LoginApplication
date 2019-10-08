@@ -18,7 +18,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private Registro registro = new Registro();
     private Ingreso ingreso = new Ingreso();
     public static Sistema sistema =new Sistema();
-
     /**
      * Creates new form FramePrincipal
      */
